@@ -1,56 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>1about</title>
-    <url>/2020/02/12/a-page/</url>
-    <content><![CDATA[<!-- https://www.bootcdn.cn/botui/ -->
-<link href="https://cdn.bootcss.com/botui/0.3.9/botui-theme-default.css" rel="stylesheet">
-<link href="https://cdn.bootcss.com/botui/0.3.9/botui.min.css" rel="stylesheet">
-
-
-<!-- 因为vue和botui更新导至bug,现将对话移至js下的botui中配置 -->
-<div class="entry-content">
-  <div class="moe-mashiro" style="text-align:center; font-size: 50px; margin-bottom: 20px;">[姑の小屋]</div>
-  <div id="hello-mashiro" class="popcontainer" style="min-height: 300px; padding: 2px 6px 4px; background-color: rgb(36, 200, 255); border-radius: 10px;">
-    <center>
-    <p>
-    </p>
-    <h4>
-    与&nbsp;<ruby>
-    cungudafa&nbsp;<rp>
-    （</rp>
-    <rt>
-    真（ま）白（しろ）</rt>
-    <rp>
-    ）</rp>
-    </ruby>
-    对话中...</h4>
-    <p>
-    </p>
-    </center>
-    <bot-ui></botui>
-  </div>
-</div>
-<!--<script src="https://cungudafa.gitee.io/js/botui.js></script>-->
-<script src="/js/botui.js"></script>
-<script>
-bot_ui_ini()
-</script>
-
-
-]]></content>
-      <tags>
-        <tag>关于</tag>
-      </tags>
+    <title>article title</title>
+    <url>/uncategorized/undefined/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>article title</title>
-    <url>/2021/11/20/article-title/</url>
+    <title>Little-Demon&#39;s Blog</title>
+    <url>/uncategorized/undefined/</url>
+    <content><![CDATA[<p>nihao </p>
+]]></content>
+  </entry>
+  <entry>
+    <title>as?</title>
+    <url>/uncategorized/null/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>as?</title>
+    <url>/uncategorized/null/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2021/11/20/hello-world/</url>
+    <url>/uncategorized/undefined/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -65,5 +38,41 @@ bot_ui_ini()
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>as2</title>
+    <url>/as2/1/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>as2</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>markdown1</title>
+    <url>/Tools/PHP/undefined/</url>
+    <content><![CDATA[<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span></span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Hexo</category>
+        <category>Tools</category>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>markdown</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sad</title>
+    <url>/uncategorized/null/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>title</title>
+    <url>/uncategorized/null/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>

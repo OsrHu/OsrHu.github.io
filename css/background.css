@@ -1,18 +1,178 @@
-#page-header {
-    /* 背景图地址 */
+/* 主页半透明度 */
+.layout_page {
+    opacity: 0.9;
+}
+
+.full_page {
+    /* 背景图像的地址（url括号里）  */
     background: url(http://r3n9v0mew.hd-bkt.clouddn.com/0.jpg);
-    /* 平铺 */
+    /* 背景图像不重复 */
     background-repeat: no-repeat;
-    /* 背景图大小 */
+    /* 背景图像大小 */
     background-size: cover;
 }
 
-#footer{
-    background:transparent;
+.not-home-page {
+    /* 背景图像的地址（url括号里）  */
+    background: url(http://r3n9v0mew.hd-bkt.clouddn.com/8.jpg);
+    /* 背景图像不重复 */
+    background-repeat: no-repeat;
+    /* 背景图像大小 */
+    background-size: cover;
 }
 
-/* 文章页背景 */
-.layout_post>#post {
-    /* 以下代表白色透明度为0.3 */
-    background: rgba(255,255,255,.3);
+
+/* 页脚footer */
+/* 渐变色滚动动画 */
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
 }
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+#footer {
+    background: linear-gradient(-45deg, #ee7752, #ce3e75, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 10s ease infinite;
+    -moz-animation: Gradient 10s ease infinite;
+    animation: Gradient 10s ease infinite;
+    -o-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#footer:before {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+  /* 取消banner背景 */
+#page-header {
+    /* 采用透明的方式取消，最后一个0表示透明 */
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/* 滚动条优化 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: rgba(73, 177, 245, 0.2);
+    border-radius: 2em;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #49b1f5;
+    background-image: -webkit-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.4) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.4) 75%,
+      transparent 75%,
+      transparent
+    );
+    border-radius: 2em;
+  }
+  
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  
+  ::-moz-selection {
+    color: #fff;
+    background-color: #ec29f3;
+  }
+
+  /* 阅读模式 */
+.read-mode {
+    /* 字体大小 */
+    font-size: 17px;
+    /* 可以在这里引入自定义字体，具体方法请自行百度css引入字体 */
+  }
+  .read-mode #web_bg {
+    /* 背景颜色 */
+    background: #fdf6e3;
+  }
+
+/* 隐藏按钮不消失 */
+.hide-block>a.hide-button.open, .hide-inline>a.hide-button.open {
+    display: inline-block;
+  }
+  /* 用于修复隐藏按钮的hover问题 */
+  #article-container a:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+
+
+  
+  
+/* 头像点击特效 */
+.is-center:hover {
+    background: url(https://gitee.com/lovelijunyi/images/raw/master/20200530181856.gif);
+  }
+
+  /* 标签自定义颜色 */
+/* 分类 */
+.card-widget.card-archives {
+    color: rgba(107, 72, 255, 1);
+  }
+  /* 最近文章 */
+  .card-widget.card-recent-post {
+    color: rgb(34, 218, 241);
+  }
+
+  /* 标签 */
+  .card-widget.card-tags {
+    color: rgba(13, 63, 103, 1);
+  }
+  
+  .card-widget.card-categories {
+    color: rgb(218, 231, 25);
+  }
+
+ 
