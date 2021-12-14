@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>我的第一篇博客</title>
-    <url>/something/1/</url>
-    <content><![CDATA[ <img src="https://cdn.osrhu.xyz/images/0.jpg">
-
-]]></content>
-      <categories>
-        <category>something</category>
-      </categories>
-  </entry>
-  <entry>
     <title>albert</title>
-    <url>/%E8%AE%BA%E6%96%87/null/</url>
+    <url>/%E8%AE%BA%E6%96%87/1/</url>
     <content><![CDATA[<h3 id="1-1-Factorized-embedding-parameterization"><a href="#1-1-Factorized-embedding-parameterization" class="headerlink" title="1.1 Factorized embedding parameterization"></a>1.1 Factorized embedding parameterization</h3><ol>
 <li>从建模角度来讲，wordpiece向量应该是不依赖于当前内容的(context-independent)，而transformer所学习到的表示应该是依赖内容的。所以把E和H分开可以更高效地利用参数，因为理论上存储了context信息的<strong>H要远大于E</strong>。</li>
 <li>从实践角度来讲，NLP任务中的vocab size本来就很大，如果E=H的话，模型参数量就容易很大，而且embedding在实际的训练中更新地也比较稀疏。</li>
@@ -27,5 +17,15 @@
       <tags>
         <tag>论文</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客</title>
+    <url>/something/1/</url>
+    <content><![CDATA[ <img src="https://cdn.osrhu.xyz/images/0.jpg">
+
+]]></content>
+      <categories>
+        <category>something</category>
+      </categories>
   </entry>
 </search>
