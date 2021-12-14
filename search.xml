@@ -10,4 +10,22 @@
         <category>something</category>
       </categories>
   </entry>
+  <entry>
+    <title>albert</title>
+    <url>/%E8%AE%BA%E6%96%87/null/</url>
+    <content><![CDATA[<h3 id="1-1-Factorized-embedding-parameterization"><a href="#1-1-Factorized-embedding-parameterization" class="headerlink" title="1.1 Factorized embedding parameterization"></a>1.1 Factorized embedding parameterization</h3><ol>
+<li>从建模角度来讲，wordpiece向量应该是不依赖于当前内容的(context-independent)，而transformer所学习到的表示应该是依赖内容的。所以把E和H分开可以更高效地利用参数，因为理论上存储了context信息的<strong>H要远大于E</strong>。</li>
+<li>从实践角度来讲，NLP任务中的vocab size本来就很大，如果E=H的话，模型参数量就容易很大，而且embedding在实际的训练中更新地也比较稀疏。</li>
+</ol>
+<p>因此作者使用了小一些的E(64、128、256、768)，训练一个独立于上下文的embedding(VxE)，之后计算时再投影到隐层的空间(乘上一个ExH的矩阵)，相当于做了一个因式分解。</p>
+<h3 id="1-2-Cross-layer-parameter-sharing"><a href="#1-2-Cross-layer-parameter-sharing" class="headerlink" title="1.2 Cross-layer parameter sharing"></a>1.2 Cross-layer parameter sharing</h3><p>跨层参数共享</p>
+<h3 id="1-3Inter-sentence-coherence-loss"><a href="#1-3Inter-sentence-coherence-loss" class="headerlink" title="1.3Inter-sentence coherence loss"></a>1.3Inter-sentence coherence loss</h3><p>NSP替换成SOP(sentence order prediction)，预测两句话有没有被交换过顺序</p>
+]]></content>
+      <categories>
+        <category>论文</category>
+      </categories>
+      <tags>
+        <tag>论文</tag>
+      </tags>
+  </entry>
 </search>
