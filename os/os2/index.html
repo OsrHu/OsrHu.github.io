@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>os2 | 微笑紫瞳星</title><meta name="keywords" content="os"><meta name="author" content="Osrhu"><meta name="copyright" content="Osrhu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="os内核学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="os2">
+<meta property="og:url" content="https://osrhu.xyz/os/os2/index.html">
+<meta property="og:site_name" content="微笑紫瞳星">
+<meta property="og:description" content="os内核学习">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.osrhu.xyz/images/cover/os.png">
+<meta property="article:published_time" content="2021-12-19T05:22:21.000Z">
+<meta property="article:modified_time" content="2021-12-19T05:27:06.015Z">
+<meta property="article:author" content="Osrhu">
+<meta property="article:tag" content="os">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.osrhu.xyz/images/cover/os.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://osrhu.xyz/os/os2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'os2',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-12-19 13:27:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/hideCategory.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.osrhu.xyz/2.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.osrhu.xyz/images/cover/os.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">微笑紫瞳星</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">os2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-19T05:22:21.000Z" title="发表于 2021-12-19 13:22:21">2021-12-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-19T05:27:06.015Z" title="更新于 2021-12-19 13:27:06">2021-12-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/os/">os</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="os2"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout hide-aside" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h2><p>抽象角度来看：内核就是计算机资源的管理者，管理资源就是为了让应用使用资源。</p>
+<h2 id="计算机资源"><a href="#计算机资源" class="headerlink" title="计算机资源"></a>计算机资源</h2><ul>
+<li><p>硬件资源</p>
+<ul>
+<li>总线：负责链接各种其他设备，是其他设备工作的基础</li>
+<li>CPU，中央处理器，负责执行程序和处理数据计算</li>
+<li>内存，负责存储运行时的代码和数据</li>
+<li>硬盘，负责长久存储用户文件数据</li>
+<li>网卡，负责计算机与计算机之间的通信</li>
+<li>显卡，负责显示工作</li>
+<li>各种I/O设备，如显示器，打印机，键盘和鼠标…</li>
+</ul>
+ <img src="https://cdn.osrhu.xyz/images/os2.assets\28cc064d767d792071a789a5b4e7d714-16398885471692.jpg"></li>
+<li><p>软件资源：各种形式的数据，如各种文件、软件程序等</p>
+</li>
+</ul>
+<p>内核作为硬件资源和软件资源的管理者，其内部组成在逻辑上大致如下：</p>
+<ul>
+<li><p>管理CPU，由于 CPU 是执行程序的，而内核把运行时的程序抽象成进程，所以又称为进程管理。</p>
+</li>
+<li><p>管理内存，由于程序和数据都要占用内存，内存是非常宝贵的资源，所以内核要非常小心地分配、释放内存。</p>
+</li>
+<li><p>管理硬盘，硬盘主要存放用户数据，而内核把用户数据抽象成文件，即管理文件，文件需要合理地组织，方便用户查找和读写，所以形成了文件系统。</p>
+</li>
+<li><p>管理显卡，负责显示信息，而现在操作系统都是支持 GUI（图形用户接口）的，管理显卡自然而然地就成了内核中的图形系统。</p>
+</li>
+<li><p>管理网卡，网卡主要完成网络通信，网络通信需要各种通信协议，最后在内核中就形成了网络协议栈，又称网络组件。</p>
+</li>
+<li><p>管理各种I/O设备，我们经常把键盘、鼠标、打印机、显示器等统称为 I/O（输入输出）设备，在内核中抽象成 I/O 管理器。</p>
+<p>另外 驱动程序是内核与硬件之间的桥梁</p>
+</li>
+</ul>
+<h2 id="内核结构"><a href="#内核结构" class="headerlink" title="内核结构"></a>内核结构</h2><h3 id="宏内核结构"><a href="#宏内核结构" class="headerlink" title="宏内核结构"></a>宏内核结构</h3><p>宏内核就是把以上诸如管理进程的代码、管理内存的代码、管理各种 I/O 设备的代码、文件系统的代码、图形系统代码以及其它功能模块的代码，把这些所有的代码经过编译，最后链接在一起，形成一个大的可执行程序。</p>
+<p>大程序有实现支持这些功能的所有代码，向用户应用软件提供一些接口，这些接口就是常说的系统API函数。这个大程序会在处理器的特权模式下运行，这个模式通常通常被称为宏内核模式。</p>
+ <img src="https://cdn.osrhu.xyz/images/os2.assets\image-20211219125335242.png">
+
+<p>非层次关系，只是链接在一起。</p>
+<p>过程：应用程序调用内存分配的API，处理器切换到特权模式，内核内存管理代码按照算法分配内存，内存首地址放回给API函数，</p>
+<p>处理器开始运行用户模式下的应用程序，应用程序得到这一块内存的首地址就可以使用这个内存。、</p>
+<p>缺点：它没有模块化，没有扩展性、没有移植性，高度耦合在一起，一旦其中一个组件有漏洞，内核中所有的组件可能都会出问题。</p>
+<h3 id="微内核结构"><a href="#微内核结构" class="headerlink" title="微内核结构"></a>微内核结构</h3><p>提倡内核功能尽可能少，仅仅只有进程调度、处理中断、内存空间映射、做成一个个服务进程。</p>
+<p>微内核定义了一种良好的进程间通信的机制—消息。</p>
+ <img src="https://cdn.osrhu.xyz/images/os2.assets\image-20211219130223512.png">
+
+<p>缺点：微内核各个服务进程的切换开销不小。</p>
+<p>优点：代码量少；相当好的伸缩性、扩展性，因为那些系统功能只是一个进程，可以随时拿掉一个服务进程以减少系统功能，或者增加几个服务进程以增强系统功能。</p>
+<h2 id="分离硬件的相关性"><a href="#分离硬件的相关性" class="headerlink" title="分离硬件的相关性"></a>分离硬件的相关性</h2><p>进程是操作系统开发者为了实现多任务而提出的，并让每个进程在 CPU 上运行一小段时间，这样就能实现多任务同时运行的假象。</p>
+<p>要实现这种假象，就要实现下面这两种机制：</p>
+<ul>
+<li>进程调度，轮转算法、优先级算法等</li>
+<li>进程切换，主要动作是保存当前进程的机器上下文，装载新进程的机器上下文。不同的硬件平台的机器上下文是不同的。</li>
+</ul>
+<hr>
+<p>以上就是了为了设计自己的内核而铺垫。</p>
+<p>操作系统内核分为三个大层：</p>
+<ol>
+<li>内核接口层<ul>
+<li>UNIX 接口</li>
+</ul>
+</li>
+<li>内核功能层<ul>
+<li>进程管理: 主要是实现进程的创建、销毁、调度进程，当然这要设计几套数据结构用于表示进程和组织进程，还要实现一个简单的进程调度算法。</li>
+<li>内存管理: 在内核功能层中只有内存池管理，分两种内存池：页面内存池和任意大小的内存池</li>
+<li>中断管理: 把一个中断回调函数安插到相关的数据结构中，一旦发生相关的中断就会调用这个函数。</li>
+<li>设备管理: 需要用一系列的数据结构表示驱动程序模块、驱动程序本身、驱动程序创建的设备，最后把它们组织在一起，还要实现创建设备、销毁设备、访问设备的代码，这些代码最终会调用设备驱动程序，达到操作设备的目的</li>
+</ul>
+</li>
+<li>内核硬件层<ul>
+<li>初始化，初始化代码是内核被加载到内存中最先需要运行的代码，例如初始化少量的设备、CPU、内存、中断的控制、内核用于管理的数据结构</li>
+<li>CPU 控制，提供 CPU 模式设定、开、关中断、读写 CPU 特定寄存器等功能的代码</li>
+<li>中断处理，保存中断时机器的上下文，调用中断回调函数，操作中断控制器等</li>
+<li>物理内存管理，提供分配、释放大块内存，内存空间映射，操作 MMU、Cache 等</li>
+<li>平台其它相关的功能，有些硬件平台上有些特殊的功能，需要额外处理一下</li>
+</ul>
+</li>
+</ol>
+ <img src="https://cdn.osrhu.xyz/images/os2.assets\image-20211219131650565.png">
+
+<p>​                                                                                                                            设计的内核结构</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>宏内核和单体架构一致，微内核和SOA架构一致，设计的内核结构更像是微服务架构。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Osrhu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://osrhu.xyz/os/os2/">https://osrhu.xyz/os/os2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://osrhu.xyz" target="_blank">微笑紫瞳星</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/os/">os</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.osrhu.xyz/images/cover/os.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/os/os3/"><img class="prev-cover" src="https://cdn.osrhu.xyz/images/cover/os.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">os3</div></div></a></div><div class="next-post pull-right"><a href="/os/os1/"><img class="next-cover" src="https://cdn.osrhu.xyz/images/cover/os.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">os1</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/os/os1/" title="os1"><img class="cover" src="https://cdn.osrhu.xyz/images/cover/os.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-19</div><div class="title">os1</div></div></a></div><div><a href="/os/os3/" title="os3"><img class="cover" src="https://cdn.osrhu.xyz/images/cover/os.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-19</div><div class="title">os3</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Osrhu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a><br>
+<img src="https://cdn.osrhu.xyz/12.png">
+<a href="https://beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">浙ICP备2021038272号-1</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div><head><<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></head></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '8PWdI2xxLVxO1q1WUDgU7wiQ-gzGzoHsz',
+      appKey: 'jJusLElgXz7nukreoJ4dnOBF',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer src="/js/universe.js"></script><script src="/js/background.js"></script><script src="/js/hideCategory.js"></script><canvas id="universe"></canvas><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
