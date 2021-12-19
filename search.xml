@@ -19,17 +19,6 @@
       </tags>
   </entry>
   <entry>
-    <title>我的第一篇博客</title>
-    <url>/something/1/</url>
-    <content><![CDATA[ <img src="https://cdn.osrhu.xyz/images/0.jpg">
-
-<p>“总有一天你将破蛹而出，成长得比人们期待的还要美丽。<br>但这个过程会很痛，会很辛苦，有时候还会觉得灰心。<br>面对着汹涌而来的现实，觉得自己渺小无力。<br>但这，也是生命的一部分。做好现在你能做的，然后，一切都会好的。<br>我们都将孤独地长大，不要害怕。”</p>
-]]></content>
-      <categories>
-        <category>something</category>
-      </categories>
-  </entry>
-  <entry>
     <title>os1</title>
     <url>/os/os1/</url>
     <content><![CDATA[<h1 id="底层知识问题"><a href="#底层知识问题" class="headerlink" title="底层知识问题"></a>底层知识问题</h1><ul>
@@ -94,6 +83,17 @@
       <tags>
         <tag>os</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客</title>
+    <url>/something/1/</url>
+    <content><![CDATA[ <img src="https://cdn.osrhu.xyz/images/0.jpg">
+
+<p>“总有一天你将破蛹而出，成长得比人们期待的还要美丽。<br>但这个过程会很痛，会很辛苦，有时候还会觉得灰心。<br>面对着汹涌而来的现实，觉得自己渺小无力。<br>但这，也是生命的一部分。做好现在你能做的，然后，一切都会好的。<br>我们都将孤独地长大，不要害怕。”</p>
+]]></content>
+      <categories>
+        <category>something</category>
+      </categories>
   </entry>
   <entry>
     <title>os2</title>
@@ -232,7 +232,7 @@
  <img src="https://cdn.osrhu.xyz/images/os3.assets\image-20211219153543835.png">
 
 <p>通常情况下，CS 和 SS 中 RPL 就组成了 CPL（当前权限级别），所以常常是 RPL=CPL，进而 CPL 就表示发起访问者要以什么权限去访问目标段，当 CPL 大于目标段 DPL 时，则 CPU 禁止访问，只有 CPL 小于等于目标段 DPL 时才能访问。保护模式平坦模型</p>
-<h2 id="保护模式平坦模式"><a href="#保护模式平坦模式" class="headerlink" title="保护模式平坦模式"></a>保护模式平坦模式</h2><p>分段模型有很多缺钱，现代操作系统都会使用分页模型。</p>
+<h2 id="保护模式平坦模式"><a href="#保护模式平坦模式" class="headerlink" title="保护模式平坦模式"></a>保护模式平坦模式</h2><p>分段模型有很多缺陷，现代操作系统都会使用分页模型。</p>
 <p>CPU 32 位的寄存器最多只能产生 4GB 大小的地址，而一个段长度也只能是 4GB，所以我们把所有段的基地址设为 0，段的长度设为 0xFFFFF，段长度的粒度设为 4KB，这样所有的段都指向同一个（0~4GB-1）字节大小的地址空间</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GDT_START:</span><br><span class="line">knull_dsc: dq 0</span><br><span class="line">;第一个段描述符CPU硬件规定必须为0</span><br><span class="line">kcode_dsc: dq 0x00cf9e000000ffff</span><br><span class="line">;段基地址=0，段长度=0xfffff</span><br><span class="line">;G=1,D/B=1,L=0,AVL=0 </span><br><span class="line">;P=1,DPL=0,S=1</span><br><span class="line">;T=1,C=1,R=1,A=0</span><br><span class="line">kdata_dsc: dq 0x00cf92000000ffff</span><br><span class="line">;段基地址=0，段长度=0xfffff</span><br><span class="line">;G=1,D/B=1,L=0,AVL=0 </span><br><span class="line">;P=1,DPL=0,S=1</span><br><span class="line">;T=0,C=0,R=1,A=0</span><br><span class="line">GDT_END:</span><br><span class="line"></span><br><span class="line">GDT_PTR:</span><br><span class="line">GDTLEN  dw GDT_END-GDT_START-1</span><br><span class="line">GDTBASE  dd GDT_START</span><br></pre></td></tr></table></figure>
 
