@@ -274,6 +274,7 @@
  <img src="https://cdn.osrhu.xyz/images/os3.assets\image-20211219162201393.png">
 
 <p>参考：<a href="https://nieyong.github.io/wiki_cpu/CPU%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84-MMU.html">https://nieyong.github.io/wiki_cpu/CPU%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84-MMU.html</a></p>
+<p>参考：<a href="https://chyyuu.gitbooks.io/simple_os_book/content/zh/chapter-1/protect_mode.html">https://chyyuu.gitbooks.io/simple_os_book/content/zh/chapter-1/protect_mode.html</a></p>
 <hr>
 <p>实模式，保护模式，长模式，逐渐演进</p>
 <p>1、实模式：<br>(1)代码段地址+左移4位+ IP = 取指<br>数据段+左移4位+ 通用寄存器值 = 数据地址<br>栈段SS+左移4位 + SP = 栈地址<br>(2)实模式中断：<br>中断号+ IDTR 寄存器(指向中断表的地址和长度) —&gt; 根据中断号，找到中断表中的对应条目 —&gt; 解析出中断函数基地址填充CS、中断函数偏移填充IP —&gt; 响应中断。</p>
@@ -281,6 +282,54 @@
 <p>(5) 切换保护模式： 准备全局描述附表GDT，<br>GDTR指向GDT，<br>设置CR0开启保护模式，<br>执行长跳转,CPU根据8索引值索引GDT中第二条数据，加载CS</p>
 <p>3、长模式：<br>（1）寄存器扩展到64位<br>（2）长模式段描述符, L=1，D/B=0 时是64 位代码段， L ， D/B, 无效是数据段<br>（3）长模式中断：中断们描述符比保护模式多了8字节64位，用于存放64位的目标代码段偏移多出来的高32位。<br>其他中断过程同保护模式。<br>（4）长模式切换：准备长模式全局段描述符表,<br>准备长模式下的MMU页表,开启分页模式<br>CR3指向页表物理地址<br>GDTR指向全局段描述符表<br>IA32_EFER寄存器第8位开启长模式，CR0寄存器= 0x31开启保护模式和分页模式<br>进行跳转，索引GDT， 加载 CS 段寄存器，刷新其影子寄存器</p>
 <p>（5）长模式弱化段模式管理，只保留了权限级别的检查，忽略了段基址和段长度，而地址的检查则交给了 MMU，分页管理。</p>
+]]></content>
+      <categories>
+        <category>os</category>
+      </categories>
+      <tags>
+        <tag>os</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>os4</title>
+    <url>/os/os4/</url>
+    <content><![CDATA[<h1 id="地址转化"><a href="#地址转化" class="headerlink" title="地址转化"></a>地址转化</h1><h2 id="MMU工作原理图"><a href="#MMU工作原理图" class="headerlink" title="MMU工作原理图"></a>MMU工作原理图</h2> <img src="https://cdn.osrhu.xyz/images/os4.assets\image-20211226111114632.png">
+
+<h2 id="分页模型框架"><a href="#分页模型框架" class="headerlink" title="分页模型框架"></a>分页模型框架</h2><p>把虚拟地址空间和物理地址空间都分成同等大小的块，也称为页，按照虚拟页和物理页进行转换。根据软件配置不同，这个页的大小可以设置为 4KB、2MB、4MB、1GB，这样就进入了现代内存管理模式——分页模型。</p>
+ <img src="https://cdn.osrhu.xyz/images/os4.assets\image-20211226111131637.png">
+
+<h2 id="CPU地址转换表"><a href="#CPU地址转换表" class="headerlink" title="CPU地址转换表"></a>CPU地址转换表</h2> <img src="https://cdn.osrhu.xyz/images/os4.assets\image-20211226111220571.png">
+
+<h2 id="页表"><a href="#页表" class="headerlink" title="页表"></a>页表</h2> <img src="https://cdn.osrhu.xyz/images/os4.assets\image-20211226111313390.png">
+
+<h2 id="保护模式下的分页–4KB页"><a href="#保护模式下的分页–4KB页" class="headerlink" title="保护模式下的分页–4KB页"></a>保护模式下的分页–4KB页</h2> <img src="https://cdn.osrhu.xyz/images/os4.assets\image-20211226111944619.png">
+
+ <img src="https://cdn.osrhu.xyz/images/os4.assets\361c48e1876a412f9ff9f29bf2dbecc9.jpg">
+
+<h2 id="保护模式下的分页–4MB页"><a href="#保护模式下的分页–4MB页" class="headerlink" title="保护模式下的分页–4MB页"></a>保护模式下的分页–4MB页</h2> <img src="https://cdn.osrhu.xyz/images/os4.assets\image-20211226112403492.png">
+
+ <img src="https://cdn.osrhu.xyz/images/os4.assets\9a4afdc60b790c3e2b7e94b0c7fd4208.jpg">
+
+<h2 id="长模式下的分页——4KB-页"><a href="#长模式下的分页——4KB-页" class="headerlink" title="长模式下的分页——4KB 页"></a>长模式下的分页——4KB 页</h2> <img src="https://cdn.osrhu.xyz/images/os4.assets\ecdea93c2544cf9c1d84461b602b03c9.jpg">
+
+
+
+<p>4KB 分页模式下的 CR3、顶级页目录项、页目录指针项、页目录项的格式，格式如下图。</p>
+ <img src="https://cdn.osrhu.xyz/images/os4.assets\e342246f5cfa21c5b5173b9e494bdc55.jpg">
+
+<h2 id="长模式下的分页——2MB-页"><a href="#长模式下的分页——2MB-页" class="headerlink" title="长模式下的分页——2MB 页"></a>长模式下的分页——2MB 页</h2> <img src="https://cdn.osrhu.xyz/images/os4.assets\image-20211226130814042.png">
+
+
+
+<p>2MB 分页模式下的 CR3、顶级页目录项、页目录指针项、页目录项的格式，格式如下图。</p>
+ <img src="https://cdn.osrhu.xyz/images/os4.assets\457f6965d0f25bf64bfb9ec698ab7e0b.jpg">
+
+<h2 id="MMU地址转化失败"><a href="#MMU地址转化失败" class="headerlink" title="MMU地址转化失败"></a>MMU地址转化失败</h2><p>MMU执行的操作如下：</p>
+<p>1.MMU停止定制转化</p>
+<p>2.MMU把转化失败的虚拟地址写入CPU的CR2寄存器</p>
+<p>3.MMU出发CPU的14号中断，使CPU停止执行当前指令</p>
+<p>4.CPU开始执行14号中断的处理代码，代码会检查原因，处理好页表数据返回。</p>
+<p>5.CPU中断返回继续执行MMU地址转化失败时的指令。</p>
 ]]></content>
       <categories>
         <category>os</category>
